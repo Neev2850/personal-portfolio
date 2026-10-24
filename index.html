@@ -8,9 +8,25 @@
       content="Personal portfolio of Neev Rupareliya, a second-year B.Tech CSE student at JECRC University, Jaipur."
     />
     <title>Neev Rupareliya | Personal Portfolio</title>
-    <!-- Load styles from the CSS file in this folder -->
+    <!-- Load styles from the CSS file in this same folder -->
     <link rel="stylesheet" href="style.css" />
-    <!-- Load JavaScript at the end of body so the HTML exists first -->
+    <!--
+      Apply the saved theme before the page paints.
+      This avoids a flash of the wrong colours on reload.
+      Theme is stored in localStorage only. No API keys are stored here.
+    -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("portfolio-theme");
+          if (saved === "light") {
+            document.documentElement.setAttribute("data-theme", "light");
+          }
+        } catch (error) {
+          // localStorage can fail in private browsing; dark theme stays default.
+        }
+      })();
+    </script>
   </head>
   <body>
     <!-- Skip link helps keyboard users jump past the navigation -->
@@ -62,7 +78,8 @@
         <p class="lead">
           I am a second-year Computer Science and Engineering student and an
           aspiring web developer. This website is my college assessment project:
-          a personal portfolio with room to add an API-based chatbot later.
+          a personal portfolio website with API-based chatbot integration
+          planned as a later step.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#projects">View projects</a>
@@ -75,12 +92,15 @@
         <h2>About me</h2>
         <p>
           I am studying B.Tech in Computer Science and Engineering at JECRC
-          University, Jaipur. I am currently in my second year.
+          University, Jaipur. I am currently in my second year, with an expected
+          graduation in 2029.
         </p>
         <p>
           I am building a foundation in programming and web development. This
           portfolio collects coursework and practice projects so I can present
-          what I have studied so far in a clear, professional way.
+          what I have studied so far in a clear, professional way. A chatbot
+          connected to a secure backend will be added in a later version of this
+          project.
         </p>
         <dl class="about-grid">
           <div>
@@ -94,6 +114,14 @@
           <div>
             <dt>Year</dt>
             <dd>Second year</dd>
+          </div>
+          <div>
+            <dt>Expected graduation</dt>
+            <dd>2029</dd>
+          </div>
+          <div>
+            <dt>CGPA</dt>
+            <dd>8.0</dd>
           </div>
           <div>
             <dt>Career interest</dt>
@@ -125,7 +153,8 @@
         <h2>Projects</h2>
         <p>
           Coursework and practice projects from my studies. Repository links
-          will be added when the code is published.
+          are marked clearly so they can be replaced when the code is published.
+          These projects are not claimed as live deployments.
         </p>
 
         <!-- Live search: script.js filters cards as you type -->
@@ -139,7 +168,7 @@
           />
         </div>
 
-        <p id="no-results" class="no-results" hidden>
+        <p id="no-results" class="no-results" hidden aria-live="polite">
           No projects match your search. Try another keyword.
         </p>
 
@@ -251,11 +280,11 @@
           <li>
             GitHub:
             <a
-              href="https://github.com/neevrupareliya"
+              href="https://github.com/Neev2850"
               target="_blank"
               rel="noopener noreferrer"
             >
-              github.com/neevrupareliya
+              github.com/Neev2850
             </a>
           </li>
         </ul>
@@ -263,9 +292,13 @@
     </main>
 
     <footer class="site-footer">
-      <p>© <span id="year"></span> Neev Rupareliya. Personal portfolio for college assessment.</p>
+      <p>
+        © <span id="year"></span> Neev Rupareliya. Personal portfolio for
+        college assessment.
+      </p>
     </footer>
 
+    <!-- Load JavaScript after the HTML so the elements exist first -->
     <script src="script.js"></script>
   </body>
 </html>
