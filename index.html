@@ -1,304 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Personal portfolio of Neev Rupareliya, a second-year B.Tech CSE student at JECRC University, Jaipur."
-    />
-    <title>Neev Rupareliya | Personal Portfolio</title>
-    <!-- Load styles from the CSS file in this same folder -->
-    <link rel="stylesheet" href="style.css" />
-    <!--
-      Apply the saved theme before the page paints.
-      This avoids a flash of the wrong colours on reload.
-      Theme is stored in localStorage only. No API keys are stored here.
-    -->
-    <script>
-      (function () {
-        try {
-          var saved = localStorage.getItem("portfolio-theme");
-          if (saved === "light") {
-            document.documentElement.setAttribute("data-theme", "light");
-          }
-        } catch (error) {
-          // localStorage can fail in private browsing; dark theme stays default.
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neev Rupareliya - Portfolio</title>
+  <meta name="description" content="Personal portfolio of Neev Rupareliya, a second-year B.Tech CSE student at JECRC University, Jaipur.">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+          document.documentElement.classList.add('dark');
         }
-      })();
-    </script>
-  </head>
-  <body>
-    <!-- Skip link helps keyboard users jump past the navigation -->
-    <a class="skip-link" href="#main">Skip to main content</a>
+      } catch (e) {}
+    })();
+  </script>
+</head>
 
-    <header class="site-header">
-      <div class="header-inner">
-        <a class="logo" href="#home">Neev Rupareliya</a>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">Neev Rupareliya</div>
+    <div class="nav-controls">
+      <button id="theme-toggle" aria-label="Toggle theme">🌓</button>
+      <button id="menu-btn" aria-label="Toggle menu">☰</button>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#chatbot">Chatbot</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-        <!-- Mobile menu button. JavaScript toggles the nav open/closed. -->
-        <button
-          class="nav-toggle"
-          type="button"
-          aria-controls="site-nav"
-          aria-expanded="false"
-          aria-label="Open menu"
-        >
-          <span class="nav-toggle-bar" aria-hidden="true"></span>
-        </button>
-
-        <nav id="site-nav" class="site-nav" aria-label="Primary">
-          <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
-
-        <!-- Theme toggle. JavaScript saves the choice in localStorage. -->
-        <button
-          class="theme-toggle"
-          type="button"
-          aria-pressed="false"
-          aria-label="Switch to light mode"
-        >
-          <span class="theme-toggle-icon" aria-hidden="true"></span>
-          <span class="theme-toggle-text">Light</span>
-        </button>
+  <main>
+    <section id="home">
+      <img src="images/avatar.svg" alt="Neev Rupareliya" class="profile-photo" id="profile-photo">
+      <h1>Neev Rupareliya</h1>
+      <p class="tagline">Building Innovative Solutions Through Code, Creativity, and Continuous Learning.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-secondary">Contact Me</a>
       </div>
-    </header>
+    </section>
 
-    <main id="main">
-      <!-- 1. Home -->
-      <section id="home" class="hero section">
-        <p class="eyebrow">B.Tech CSE · JECRC University, Jaipur</p>
-        <h1>Hi, I am Neev Rupareliya.</h1>
-        <p class="lead">
-          I am a second-year Computer Science and Engineering student and an
-          aspiring web developer. This website is my college assessment project:
-          a personal portfolio website with API-based chatbot integration
-          planned as a later step.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">View projects</a>
-          <a class="btn btn-secondary" href="#contact">Contact me</a>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>I am a second-year Computer Science and Engineering student at JECRC University, Jaipur, passionate about coding, problem-solving, and software development. I love building practical digital solutions, exploring modern web frameworks, and turning creative ideas into reality.</p>
+      <div class="education">
+        <h3>Education</h3>
+        <p><strong>B.Tech in Computer Science and Engineering</strong></p>
+        <p>JECRC University, Jaipur · Second Year (Expected Graduation: 2029) · CGPA: 8.0</p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li>Python</li>
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>JavaScript</li>
+        <li>C++</li>
+        <li>C</li>
+        <li>Git</li>
+        <li>GitHub</li>
+        <li>Cursor AI</li>
+        <li>Responsive Web Design</li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <input type="text" id="search" placeholder="Search projects (e.g., Python, Quiz, AI)...">
+      <div id="project-list"></div>
+    </section>
+
+    <section id="chatbot">
+      <h2>AI Assistant</h2>
+      <p class="chatbot-intro">Have questions about Neev's background, education, or projects? Ask the assistant below!</p>
+      <div class="quick-prompts">
+        <button class="quick-btn" type="button" data-prompt="What are Neev's key skills?">Skills</button>
+        <button class="quick-btn" type="button" data-prompt="Tell me about Neev's education and college.">Education</button>
+        <button class="quick-btn" type="button" data-prompt="What projects has Neev built?">Projects</button>
+        <button class="quick-btn" type="button" data-prompt="How can I contact Neev?">Contact Info</button>
+      </div>
+      <div id="chat-messages"></div>
+      <div class="chat-input-wrapper">
+        <input type="text" id="chat-input" placeholder="Ask me anything about Neev...">
+        <button id="chat-send">Send</button>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>If you'd like to collaborate, discuss project opportunities, or get in touch, feel free to reach out:</p>
+      <div class="contact-details">
+        <div class="contact-item">
+          <span class="contact-label">Email:</span>
+          <a href="mailto:neevrupareliya@gmail.com">neevrupareliya@gmail.com</a>
         </div>
-      </section>
-
-      <!-- 2. About Me -->
-      <section id="about" class="section">
-        <h2>About me</h2>
-        <p>
-          I am studying B.Tech in Computer Science and Engineering at JECRC
-          University, Jaipur. I am currently in my second year, with an expected
-          graduation in 2029.
-        </p>
-        <p>
-          I am building a foundation in programming and web development. This
-          portfolio collects coursework and practice projects so I can present
-          what I have studied so far in a clear, professional way. A chatbot
-          connected to a secure backend will be added in a later version of this
-          project.
-        </p>
-        <dl class="about-grid">
-          <div>
-            <dt>Course</dt>
-            <dd>B.Tech in Computer Science and Engineering</dd>
-          </div>
-          <div>
-            <dt>University</dt>
-            <dd>JECRC University, Jaipur</dd>
-          </div>
-          <div>
-            <dt>Year</dt>
-            <dd>Second year</dd>
-          </div>
-          <div>
-            <dt>Expected graduation</dt>
-            <dd>2029</dd>
-          </div>
-          <div>
-            <dt>CGPA</dt>
-            <dd>8.0</dd>
-          </div>
-          <div>
-            <dt>Career interest</dt>
-            <dd>Aspiring web developer</dd>
-          </div>
-        </dl>
-      </section>
-
-      <!-- 3. Skills -->
-      <section id="skills" class="section">
-        <h2>Skills</h2>
-        <p>
-          These are technologies I am learning or have studied. I am still
-          developing these skills and continue to practise them through
-          coursework and personal projects.
-        </p>
-        <ul class="skill-list">
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>JavaScript</li>
-          <li>C++</li>
-          <li>C</li>
-          <li>Python</li>
-        </ul>
-      </section>
-
-      <!-- 4. Projects -->
-      <section id="projects" class="section">
-        <h2>Projects</h2>
-        <p>
-          Coursework and practice projects from my studies. Repository links
-          are marked clearly so they can be replaced when the code is published.
-          These projects are not claimed as live deployments.
-        </p>
-
-        <!-- Live search: script.js filters cards as you type -->
-        <div class="search-bar">
-          <label for="project-search">Search projects</label>
-          <input
-            id="project-search"
-            type="search"
-            placeholder="Try Python, Quiz, or Book"
-            autocomplete="off"
-          />
+        <div class="contact-item">
+          <span class="contact-label">GitHub:</span>
+          <a href="https://github.com/Neev2850/personal-portfolio" target="_blank" rel="noopener noreferrer">github.com/Neev2850/personal-portfolio</a>
         </div>
+      </div>
+    </section>
+  </main>
 
-        <p id="no-results" class="no-results" hidden aria-live="polite">
-          No projects match your search. Try another keyword.
-        </p>
+  <footer>
+    <p>&copy; <span id="year">2026</span> Neev Rupareliya. All rights reserved.</p>
+  </footer>
 
-        <div class="project-grid" id="project-grid">
-          <article
-            class="project-card"
-            data-title="Python Programs Collection"
-            data-description="A collection of beginner Python programs covering factorial, Fibonacci sequence, and converting a structure to a dictionary."
-            data-tech="Python"
-          >
-            <h3>Python Programs Collection</h3>
-            <p>
-              A collection of beginner Python programs covering factorial,
-              Fibonacci sequence, and converting a structure to a dictionary.
-            </p>
-            <p class="tech">Python</p>
-            <p class="project-link-note">
-              Repository URL: not added yet —
-              <span class="replace-later">replace with your GitHub repo link</span>
-            </p>
-          </article>
+  <script src="script.js"></script>
+</body>
 
-          <article
-            class="project-card"
-            data-title="Messy Python Code Improvement"
-            data-description="Improved messy Python code with AI assistance, focusing on readability, structure, and clearer logic."
-            data-tech="Python AI assistance"
-          >
-            <h3>Messy Python Code Improvement</h3>
-            <p>
-              Improved messy Python code with AI assistance, focusing on
-              readability, structure, and clearer logic.
-            </p>
-            <p class="tech">Python · AI assistance</p>
-            <p class="project-link-note">
-              Repository URL: not added yet —
-              <span class="replace-later">replace with your GitHub repo link</span>
-            </p>
-          </article>
-
-          <article
-            class="project-card"
-            data-title="Bug Fixing Using Cursor AI"
-            data-description="Debugged and corrected an incorrect program using Cursor AI as a learning aid during the process."
-            data-tech="Debugging Cursor AI programming"
-          >
-            <h3>Bug Fixing Using Cursor AI</h3>
-            <p>
-              Debugged and corrected an incorrect program using Cursor AI as a
-              learning aid during the process.
-            </p>
-            <p class="tech">Debugging · Cursor AI</p>
-            <p class="project-link-note">
-              Repository URL: not added yet —
-              <span class="replace-later">replace with your GitHub repo link</span>
-            </p>
-          </article>
-
-          <article
-            class="project-card"
-            data-title="Interactive Quiz Application"
-            data-description="An interactive quiz application developed in Lecture 10 using HTML, CSS, and JavaScript."
-            data-tech="HTML CSS JavaScript Quiz"
-          >
-            <h3>Interactive Quiz Application</h3>
-            <p>
-              An interactive quiz application developed in Lecture 10 using
-              HTML, CSS, and JavaScript.
-            </p>
-            <p class="tech">HTML · CSS · JavaScript</p>
-            <p class="project-link-note">
-              Repository URL: not added yet —
-              <span class="replace-later">replace with your GitHub repo link</span>
-            </p>
-          </article>
-
-          <article
-            class="project-card"
-            data-title="Book Reading List Application"
-            data-description="A book reading list application developed in Lecture 11 for tracking titles you want to read."
-            data-tech="HTML CSS JavaScript Book"
-          >
-            <h3>Book Reading List Application</h3>
-            <p>
-              A book reading list application developed in Lecture 11 for
-              tracking titles you want to read.
-            </p>
-            <p class="tech">HTML · CSS · JavaScript</p>
-            <p class="project-link-note">
-              Repository URL: not added yet —
-              <span class="replace-later">replace with your GitHub repo link</span>
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <!-- 5. Contact -->
-      <section id="contact" class="section">
-        <h2>Contact</h2>
-        <p>
-          If you would like to get in touch about coursework, web development,
-          or this portfolio, you can email me or visit my GitHub profile.
-        </p>
-        <ul class="contact-list">
-          <li>
-            Email:
-            <a href="mailto:neevrupareliya@gmail.com">neevrupareliya@gmail.com</a>
-          </li>
-          <li>
-            GitHub:
-            <a
-              href="https://github.com/Neev2850"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              github.com/Neev2850
-            </a>
-          </li>
-        </ul>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <p>
-        © <span id="year"></span> Neev Rupareliya. Personal portfolio for
-        college assessment.
-      </p>
-    </footer>
-
-    <!-- Load JavaScript after the HTML so the elements exist first -->
-    <script src="script.js"></script>
-  </body>
 </html>
