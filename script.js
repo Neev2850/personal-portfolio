@@ -8,35 +8,35 @@ const projects = [
     title: 'Python Programs Collection',
     description: 'A collection of core Python programs covering factorial calculation, Fibonacci sequence, and structure-to-dictionary conversion.',
     tech: ['Python', 'Problem Solving'],
-    github: 'https://github.com/Neev2850/personal-portfolio',
+    github: 'https://github.com/Neev2850/python-programs-collection',
     live: ''
   },
   {
     title: 'Messy Python Code Improvement',
     description: 'Refactored messy Python scripts with AI assistance, focusing on code readability, modular structure, and optimal logic.',
     tech: ['Python', 'AI'],
-    github: 'https://github.com/Neev2850/personal-portfolio',
+    github: 'https://github.com/Neev2850/messy-python-code-improvement',
     live: ''
   },
   {
     title: 'Bug Fixing Using Cursor AI',
     description: 'Debugged and corrected logic flaws and runtime issues using Cursor AI as an intelligent assistant during development.',
     tech: ['Python', 'Cursor AI', 'Debugging'],
-    github: 'https://github.com/Neev2850/personal-portfolio',
+    github: 'https://github.com/Neev2850/bug-fixing-using-cursor-ai',
     live: ''
   },
   {
     title: 'Interactive Quiz Application',
     description: 'Interactive quiz application built with HTML, CSS, and JavaScript featuring dynamic questions and score tracking.',
     tech: ['HTML', 'CSS', 'JavaScript'],
-    github: 'https://github.com/Neev2850/personal-portfolio',
+    github: 'https://github.com/Neev2850/interactive-quiz-application',
     live: ''
   },
   {
     title: 'Book Reading List Application',
     description: 'Web application designed for tracking book reading progress, wishlist management, and reading goals.',
     tech: ['HTML', 'CSS', 'JavaScript'],
-    github: 'https://github.com/Neev2850/personal-portfolio',
+    github: 'https://github.com/Neev2850/book-reading-list-application',
     live: ''
   }
 ];
@@ -223,7 +223,7 @@ function getLocalAssistantReply(message) {
     return "You can get in touch with Neev directly via email at neevrupareliya@gmail.com, or check out his GitHub at https://github.com/Neev2850/personal-portfolio.";
   }
   if (query.includes('github') || query.includes('repo')) {
-    return "You can find Neev's GitHub profile and source code at: https://github.com/Neev2850/personal-portfolio";
+    return "You can explore all 6 of Neev's GitHub repositories at https://github.com/Neev2850 including his Personal Portfolio, Python Programs Collection, Messy Python Code Improvement, Bug Fixing Using Cursor AI, Interactive Quiz Application, and Book Reading List Application!";
   }
 
   return "Neev Rupareliya is a B.Tech CSE student at JECRC University, Jaipur with skills in Python, JavaScript, and web development. Feel free to ask about his education, skills, projects, or contact details!";
